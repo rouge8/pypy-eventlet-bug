@@ -10,5 +10,8 @@ TARGET_PATH = os.environ.get('TARGET_PATH', '/test')
 pool = urllib3.connection_from_url(TARGET_HOST)
 
 for i in range(1000):
-    print(i)
-    pool.request('HEAD', TARGET_PATH)
+    try:
+        pool.request('HEAD', TARGET_PATH)
+    except:
+        print('FAILED AT REQUEST %d' % i)
+        raise
