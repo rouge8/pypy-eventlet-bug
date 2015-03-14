@@ -9,7 +9,7 @@ TARGET_PATH = os.environ.get('TARGET_PATH', '/test')
 
 pool = urllib3.connection_from_url(TARGET_HOST)
 
-for i in range(1000):
+for i in range(10000):
     try:
         pool.request('HEAD', TARGET_PATH)
     except:
